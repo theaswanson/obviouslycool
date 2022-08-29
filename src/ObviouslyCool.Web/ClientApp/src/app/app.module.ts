@@ -18,6 +18,7 @@ import { DesktopNavigationComponent } from './navigation/desktop-navigation/desk
     DesktopNavigationComponent
   ],
   imports: [
+    BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
     MaterialModule,
     BrowserModule,
     AppRoutingModule,
