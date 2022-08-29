@@ -1,0 +1,107 @@
+@import '../../variables';
+
+.content {
+  display: flex;
+  height: 100%;
+
+  @media screen and (min-width: $desktop) {
+    .column {
+      display: flex;
+      box-sizing: border-box;
+      justify-content: space-around;
+      align-items: center;
+    }
+  }
+}
+
+@media screen and (min-width: $desktop) {
+  .navigation {
+    border-right: 1px solid white
+  }
+}
+
+.main-column {
+  flex: 1 1;
+
+  @media screen and (min-width: $desktop) {
+    margin-left: 50px;
+  }
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+  margin-top: 20px;
+
+  @media screen and (min-width: $desktop) {
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: flex-start;
+    margin-top: 50px;
+  }
+
+  .logo {
+    display: block;
+    width: 100px;
+    margin-bottom: 20px;
+
+    @media screen and (min-width: $desktop) {
+      display: none;
+    }
+  }
+
+  .crisp {
+    display: none;
+
+    @media screen and (min-width: $desktop) {
+      display: block;
+      text-transform: uppercase;
+      font-weight: bold;
+      letter-spacing: 1px;
+      margin: 0;
+    }
+  }
+
+  .socials {
+    display: grid;
+    gap: 30px;
+    grid-auto-flow: column;
+    justify-content: start;
+    margin-bottom: 10px;
+
+    @media screen and (min-width: $desktop) {
+      margin-left: 30px;
+      margin-bottom: 0;
+    }
+
+    .ng-fa-icon {
+      color: red;
+
+      cursor: pointer;
+
+      &:hover {
+        color: lighten($color: red, $amount: 30);
+      }
+
+      &:active {
+        color: white;
+      }
+    }
+  }
+
+  .description {
+    font-weight: 500;
+    color: #bbbbbb;
+    text-align: center;
+    width: 100%;
+
+    @media screen and (min-width: $desktop) {
+      text-align: left;
+      margin-top: 10px;
+    }
+  }
+}

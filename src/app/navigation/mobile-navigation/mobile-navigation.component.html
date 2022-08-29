@@ -1,0 +1,20 @@
+<div class="mobile-nav-spacer"></div>
+<div class="mobile-navigation no-select">
+  <div class="header">
+    <fa-icon [icon]="faBars" size="lg" (click)="toggleNavigation()"></fa-icon>
+    <span class="crisp">crisp</span>
+    <span></span>
+  </div>
+  <div class="nav-items" *ngIf="navigationOpen">
+    <ul class="internal-items">
+      <li *ngFor="let item of navigationItems" routerLinkActive="menu-active">
+        <a [routerLink]="[item.route]">{{item.title}}</a>
+      </li>
+    </ul>
+    <ul>
+      <li *ngFor="let item of externalNavigationItems">
+        <a [href]="item.url" target="_blank" (click)="navigate()">{{item.title}}</a>
+      </li>
+    </ul>
+  </div>
+</div>
