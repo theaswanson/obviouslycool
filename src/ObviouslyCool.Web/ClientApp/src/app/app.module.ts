@@ -9,13 +9,15 @@ import { HomeComponent } from './home/home.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { MobileNavigationComponent } from './navigation/mobile-navigation/mobile-navigation.component';
 import { DesktopNavigationComponent } from './navigation/desktop-navigation/desktop-navigation.component';
+import { TwitchComponent } from './twitch/twitch.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     MobileNavigationComponent,
-    DesktopNavigationComponent
+    DesktopNavigationComponent,
+    TwitchComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),

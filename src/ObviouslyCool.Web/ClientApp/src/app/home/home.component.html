@@ -6,17 +6,25 @@
   <div class="main-column no-select">
     <app-mobile-navigation [navigationItems]="navigationItems">
     </app-mobile-navigation>
-    <div class="header">
-      <img src="/assets/img/logo.jpg" class="logo" title="logo"/>
-      <h1 class="crisp mat-display-3">crisp</h1>
-      <div class="socials">
-        <fa-icon [icon]="faTwitter" size="2x"></fa-icon>
-        <fa-icon [icon]="faYoutube" size="2x"></fa-icon>
-        <fa-icon [icon]="faTwitch" size="2x"></fa-icon>
-        <fa-icon [icon]="faGithub" size="2x"></fa-icon>
-        <fa-icon [icon]="faSteam" size="2x"></fa-icon>
+    <div class="main-content">
+      <div class="header">
+        <img src="/assets/img/logo.jpg" class="logo" title="logo" />
+        <h1 class="crisp bold mat-display-3">crisp</h1>
+        <div class="socials">
+          <fa-icon [icon]="faTwitter" size="2x"></fa-icon>
+          <fa-icon [icon]="faYoutube" size="2x"></fa-icon>
+          <fa-icon [icon]="faTwitch" size="2x"></fa-icon>
+          <fa-icon [icon]="faGithub" size="2x"></fa-icon>
+          <fa-icon [icon]="faSteam" size="2x"></fa-icon>
+        </div>
+        <p class="description mat-title">I code, play games, and tinker with tech.</p>
       </div>
-      <p class="description mat-title">I code, play games, and tinker with tech.</p>
+      <div class="media">
+        <div class="media-section">
+          <h2 class="bold">Latest stream</h2>
+          <app-twitch></app-twitch>
+        </div>
+      </div>
     </div>
   </div>
 </div>

@@ -26,10 +26,14 @@
         margin: 2rem 0;
 
         a {
-          padding: 1rem 4rem;
+          padding: 1rem $navigation-padding-width;
           text-decoration: none;
           color: #707070;
           cursor: pointer;
+
+          @media screen and (min-width: $desktop-lg) {
+            padding: 1rem $navigation-padding-width-lg;
+          }
 
           &:hover {
             color: #aaaaaa;
