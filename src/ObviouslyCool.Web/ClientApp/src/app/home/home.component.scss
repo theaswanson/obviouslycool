@@ -6,7 +6,6 @@
 
 .content {
   display: flex;
-  height: 100%;
 
   @media screen and (min-width: $desktop) {
     .column {
@@ -20,7 +19,10 @@
 
 @media screen and (min-width: $desktop) {
   .navigation {
-    border-right: 1px solid white
+    border-right: 1px solid white;
+    height: 100vh;
+    position: sticky;
+    top: 0;
   }
 }
 
