@@ -1,0 +1,13 @@
+@import 'swiper/scss';
+@import 'swiper/scss/navigation';
+@import 'swiper/scss/pagination';
+
+.the-swiper {
+  --swiper-navigation-color: #ffffff;
+  --swiper-pagination-color: #ffffff;
+
+  img.slide {
+    height: 300px;
+    width: 200px;
+  }
+}

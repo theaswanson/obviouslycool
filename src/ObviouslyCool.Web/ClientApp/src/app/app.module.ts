@@ -10,6 +10,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { MobileNavigationComponent } from './navigation/mobile-navigation/mobile-navigation.component';
 import { DesktopNavigationComponent } from './navigation/desktop-navigation/desktop-navigation.component';
 import { TwitchComponent } from './twitch/twitch.component';
+import { SwiperModule } from 'swiper/angular';
+import { GalleryComponent } from './gallery/gallery.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +19,8 @@ import { TwitchComponent } from './twitch/twitch.component';
     HomeComponent,
     MobileNavigationComponent,
     DesktopNavigationComponent,
-    TwitchComponent
+    TwitchComponent,
+    GalleryComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -25,7 +28,8 @@ import { TwitchComponent } from './twitch/twitch.component';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    SwiperModule
   ],
   providers: [],
   bootstrap: [AppComponent]

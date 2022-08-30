@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 
 // Access Twitch from the index.html embed script
+// https://dev.twitch.tv/docs/embed/everything
 declare let Twitch: any;
 
 @Component({
