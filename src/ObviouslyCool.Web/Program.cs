@@ -1,3 +1,6 @@
+using Microsoft.Extensions.Options;
+using ObviouslyCool.Core;
+
 namespace ObviouslyCool.Web
 {
     public class Program
@@ -5,13 +8,33 @@ namespace ObviouslyCool.Web
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
-
-            // Add services to the container.
-
-            builder.Services.AddControllersWithViews();
+            ConfigureServices(builder.Services, builder.Configuration);
 
             var app = builder.Build();
+            Configure(app);
+        }
 
+        private static void ConfigureServices(IServiceCollection services, IConfiguration configuration)
+        {
+            services.AddControllersWithViews();
+
+            services.Configure<SpotifyOptions>(configuration.GetSection(SpotifyOptions.Spotify));
+
+            services.AddTransient<SpotifyClientFactory>();
+            services.AddTransient(sp =>
+            {
+                var clientFactory = sp.GetService<SpotifyClientFactory>()!;
+                var spotifyOptions = sp.GetService<IOptions<SpotifyOptions>>()!.Value;
+
+                var clientConfig = clientFactory.BuildConfigWithRefreshToken(spotifyOptions.ClientId, spotifyOptions.ClientSecret, spotifyOptions.RefreshToken);
+                return clientFactory.Build(clientConfig);
+            });
+
+            services.AddTransient<ISpotifyService, SpotifyService>();
+        }
+
+        public static void Configure(WebApplication app)
+        {
             // Configure the HTTP request pipeline.
             if (!app.Environment.IsDevelopment())
             {
