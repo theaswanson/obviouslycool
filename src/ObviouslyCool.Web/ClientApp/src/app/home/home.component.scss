@@ -38,13 +38,11 @@
     @media screen and (min-width: $desktop) {
       display: block;
       padding: 0;
-      margin-top: $column-padding;
-      margin-left: $column-padding;
+      margin: $column-padding;
     }
 
     @media screen and (min-width: $desktop-lg) {
-      margin-top: $column-padding-lg;
-      margin-left: $column-padding-lg;
+      margin: $column-padding-lg;
     }
   }
 }
