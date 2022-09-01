@@ -128,7 +128,7 @@
   grid-template-columns: repeat(auto-fill, 90vw);
 
   @media screen and (min-width: $desktop) {
-    grid-template-columns: repeat(auto-fill, 600px);
+    grid-template-columns: repeat(auto-fill, minmax(600px, 1fr));
   }
 
   .media-section {
