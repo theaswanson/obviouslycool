@@ -1,8 +1,5 @@
-<swiper [config]="config" class="the-swiper">
-  <ng-template swiperSlide><img class="slide" src="/assets/img/melee.png" /></ng-template>
-  <ng-template swiperSlide><img class="slide" src="/assets/img/tf2.jpg" /></ng-template>
-  <ng-template swiperSlide><img class="slide" src="/assets/img/spiderman.jpg" /></ng-template>
-  <ng-template swiperSlide><img class="slide" src="/assets/img/rocket-league.jpg" /></ng-template>
-  <ng-template swiperSlide><img class="slide" src="/assets/img/hl2.jpg" /></ng-template>
-  <ng-template swiperSlide><img class="slide" src="/assets/img/portal2.jpg" /></ng-template>
+<swiper [config]="config" class="games-swiper">
+  <ng-template swiperSlide *ngFor="let gameImage of gameImages">
+    <img [src]="gameImage" />
+  </ng-template>
 </swiper>

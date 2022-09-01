@@ -1,13 +1,24 @@
 @import 'swiper/scss';
 @import 'swiper/scss/navigation';
 @import 'swiper/scss/pagination';
+@import '../../variables.scss';
 
-.the-swiper {
+.games-swiper {
   --swiper-navigation-color: #ffffff;
   --swiper-pagination-color: #ffffff;
 
-  img.slide {
+  img {
     height: 300px;
     width: 200px;
+  }
+
+  .swiper-slide {
+    // Hack to center slides on mobile since centeredSlides won't work
+    display: flex;
+    justify-content: center;
+
+    @media screen and (min-width: $desktop) {
+      display: block;
+    }
   }
 }

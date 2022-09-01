@@ -1,7 +1,7 @@
 import { Component, ViewEncapsulation } from '@angular/core';
-import SwiperCore, { Keyboard, Navigation, Pagination, SwiperOptions } from 'swiper';
+import SwiperCore, { Navigation, Pagination, SwiperOptions } from 'swiper';
 
-SwiperCore.use([Keyboard, Pagination, Navigation]);
+SwiperCore.use([Pagination, Navigation]);
 
 @Component({
   selector: 'app-gallery',
@@ -11,13 +11,27 @@ SwiperCore.use([Keyboard, Pagination, Navigation]);
 })
 export class GalleryComponent {
 
+  gameImages: string[] = [
+    '/assets/img/melee.png',
+    '/assets/img/tf2.jpg',
+    '/assets/img/spiderman.jpg',
+    '/assets/img/rocket-league.jpg',
+    '/assets/img/hl2.jpg',
+    '/assets/img/spiderman.jpg',
+    '/assets/img/portal2.jpg'
+  ];
+
   config: SwiperOptions = {
-    slidesPerView: 3,
+    slidesPerView: 1,
     spaceBetween: 50,
     navigation: true,
     pagination: { type: 'bullets' },
-    keyboard: { enabled: true },
-    rewind: true
+    rewind: true,
+    breakpoints: {
+      768: {
+        slidesPerView: 3
+      }
+    }
   };
 
 }
