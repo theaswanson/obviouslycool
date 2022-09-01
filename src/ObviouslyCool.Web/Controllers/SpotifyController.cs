@@ -9,32 +9,18 @@ namespace ObviouslyCool.Web.Controllers
     public class SpotifyController : ControllerBase
     {
         private readonly ILogger<SpotifyController> _logger;
-        private readonly ISpotifyService spotify;
+        private readonly ISpotifyCache spotifyCache;
 
-        public SpotifyController(ILogger<SpotifyController> logger, ISpotifyService spotify)
+        public SpotifyController(ILogger<SpotifyController> logger, ISpotifyCache spotifyCache)
         {
             _logger = logger;
-            this.spotify = spotify;
+            this.spotifyCache = spotifyCache;
         }
 
         [HttpGet]
         public async Task<IEnumerable<TopArtist>> GetArtists()
         {
-            _logger.LogInformation("Spotify API was called.");
-
-            var topArtists = await spotify.GetTopArtists();
-
-            if (topArtists.Items is null)
-            {
-                return Enumerable.Empty<TopArtist>();
-            }
-
-            return topArtists.Items.Select(i => new TopArtist
-            {
-                Name = i.Name,
-                ImageUrl = i.Images.FirstOrDefault()?.Url ?? string.Empty,
-                ArtistUrl = i.ExternalUrls.FirstOrDefault(x => x.Key == "spotify").Value ?? string.Empty
-            });
+            return await spotifyCache.GetTopArtists() ?? Enumerable.Empty<TopArtist>();
         }
     }
 }

@@ -1,5 +1,6 @@
 using Microsoft.Extensions.Options;
 using ObviouslyCool.Core.Services;
+using SpotifyAPI.Web;
 
 namespace ObviouslyCool.Web
 {
@@ -23,14 +24,20 @@ namespace ObviouslyCool.Web
             services.AddTransient<SpotifyClientFactory>();
             services.AddTransient(sp =>
             {
-                var clientFactory = sp.GetService<SpotifyClientFactory>()!;
-                var spotifyOptions = sp.GetService<IOptions<SpotifyOptions>>()!.Value;
-
-                var clientConfig = clientFactory.BuildConfigWithRefreshToken(spotifyOptions.ClientId, spotifyOptions.ClientSecret, spotifyOptions.RefreshToken);
-                return clientFactory.Build(clientConfig);
+                return BuildSpotifyClient(sp);
             });
 
             services.AddTransient<ISpotifyService, SpotifyService>();
+            services.AddSingleton<ISpotifyCache, SpotifyCache>();
+        }
+
+        private static ISpotifyClient BuildSpotifyClient(IServiceProvider sp)
+        {
+            var clientFactory = sp.GetService<SpotifyClientFactory>()!;
+            var spotifyOptions = sp.GetService<IOptions<SpotifyOptions>>()!.Value;
+
+            var clientConfig = clientFactory.BuildConfigWithRefreshToken(spotifyOptions.ClientId, spotifyOptions.ClientSecret, spotifyOptions.RefreshToken);
+            return clientFactory.Build(clientConfig);
         }
 
         public static void Configure(WebApplication app)

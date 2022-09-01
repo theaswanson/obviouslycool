@@ -1,11 +1,10 @@
-﻿using ObviouslyCool.Core.Models;
-using SpotifyAPI.Web;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
+using ObviouslyCool.Core.Models;
 
 namespace ObviouslyCool.Core.Services
 {
-    public interface ISpotifyService
+    public interface ISpotifyCache
     {
         Task<IEnumerable<TopArtist>> GetTopArtists();
     }

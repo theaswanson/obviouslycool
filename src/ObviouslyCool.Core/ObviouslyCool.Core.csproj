@@ -7,6 +7,10 @@
 
   <ItemGroup>
     <PackageReference Include="SpotifyAPI.Web" Version="6.3.0" />
+    <PackageReference Include="Microsoft.Extensions.Caching.Memory" Version="6.0.1" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Remove="Microsoft.Extensions.Caching.Memory" />
+  </ItemGroup>
 </Project>

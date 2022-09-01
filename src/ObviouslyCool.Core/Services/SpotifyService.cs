@@ -1,4 +1,7 @@
-﻿using SpotifyAPI.Web;
+﻿using ObviouslyCool.Core.Models;
+using SpotifyAPI.Web;
+using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace ObviouslyCool.Core.Services
@@ -12,9 +15,15 @@ namespace ObviouslyCool.Core.Services
             this.client = client;
         }
 
-        public async Task<Paging<FullArtist>> GetTopArtists()
+        public async Task<IEnumerable<TopArtist>> GetTopArtists()
         {
-            return await client.Personalization.GetTopArtists();
+            var topArtistsResponse = await client.Personalization.GetTopArtists();
+            return topArtistsResponse.Items.Select(i => new TopArtist
+            {
+                Name = i.Name,
+                ImageUrl = i.Images.FirstOrDefault()?.Url ?? string.Empty,
+                ArtistUrl = i.ExternalUrls.FirstOrDefault(x => x.Key == "spotify").Value ?? string.Empty
+            });
         }
     }
 }
