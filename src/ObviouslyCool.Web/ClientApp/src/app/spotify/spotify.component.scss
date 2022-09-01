@@ -1,0 +1,60 @@
+@import 'swiper/scss';
+@import 'swiper/scss/navigation';
+@import 'swiper/scss/pagination';
+@import '../../variables.scss';
+
+.swiper-wrapper {
+  min-width: 0;
+}
+
+.spotify-swiper {
+  --swiper-navigation-color: #ffffff;
+  --swiper-pagination-color: #ffffff;
+
+  .swiper-slide {
+    // Hack to center slides on mobile since centeredSlides won't work
+    display: flex;
+    justify-content: center;
+
+    @media screen and (min-width: $desktop) {
+      display: block;
+    }
+  }
+
+  .artist-image-container {
+    height: 300px;
+    width: 300px;
+    text-align: center;
+    position: relative;
+
+    @media screen and (min-width: $desktop) {
+      height: 200px;
+      width: 200px;
+    }
+
+    img {
+      width: 100%;
+    }
+
+    .name {
+      // https://stackoverflow.com/questions/25528056/truncate-text-in-an-absolute-positioned-div
+      position: absolute;
+      top: 25px;
+      left: 0px;
+      right: 0px;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      white-space: nowrap;
+      color: white;
+      mix-blend-mode: difference;
+      font-weight: bold;
+      font-size: xx-large;
+      line-height: 40px;
+
+      @media screen and (min-width: $desktop) {
+        top: 8px;
+        font-size: initial;
+      }
+    }
+  }
+}

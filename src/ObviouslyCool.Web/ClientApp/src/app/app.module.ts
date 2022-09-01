@@ -12,6 +12,8 @@ import { DesktopNavigationComponent } from './navigation/desktop-navigation/desk
 import { TwitchComponent } from './twitch/twitch.component';
 import { SwiperModule } from 'swiper/angular';
 import { GalleryComponent } from './gallery/gallery.component';
+import { SpotifyComponent } from './spotify/spotify.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,8 @@ import { GalleryComponent } from './gallery/gallery.component';
     MobileNavigationComponent,
     DesktopNavigationComponent,
     TwitchComponent,
-    GalleryComponent
+    GalleryComponent,
+    SpotifyComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -29,7 +32,8 @@ import { GalleryComponent } from './gallery/gallery.component';
     AppRoutingModule,
     BrowserAnimationsModule,
     FontAwesomeModule,
-    SwiperModule
+    SwiperModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
