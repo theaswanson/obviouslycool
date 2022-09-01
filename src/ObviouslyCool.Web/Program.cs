@@ -1,5 +1,5 @@
 using Microsoft.Extensions.Options;
-using ObviouslyCool.Core;
+using ObviouslyCool.Core.Services;
 
 namespace ObviouslyCool.Web
 {

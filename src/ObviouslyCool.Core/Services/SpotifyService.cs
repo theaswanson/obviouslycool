@@ -1,7 +1,7 @@
 ﻿using SpotifyAPI.Web;
 using System.Threading.Tasks;
 
-namespace ObviouslyCool.Core
+namespace ObviouslyCool.Core.Services
 {
     public class SpotifyService : ISpotifyService
     {

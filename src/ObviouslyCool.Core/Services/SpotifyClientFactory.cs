@@ -1,7 +1,7 @@
 ﻿using SpotifyAPI.Web;
 using System;
 
-namespace ObviouslyCool.Core
+namespace ObviouslyCool.Core.Services
 {
     public class SpotifyClientFactory
     {

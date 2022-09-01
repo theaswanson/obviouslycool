@@ -1,4 +1,5 @@
 using Moq;
+using ObviouslyCool.Core.Services;
 using SpotifyAPI.Web;
 
 namespace ObviouslyCool.Core.Tests
