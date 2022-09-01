@@ -11,11 +11,9 @@
         <img src="/assets/img/logo.jpg" class="logo" title="logo" />
         <h1 class="crisp bold mat-display-3">crisp</h1>
         <div class="socials">
-          <fa-icon [icon]="faTwitter" size="2x"></fa-icon>
-          <fa-icon [icon]="faYoutube" size="2x"></fa-icon>
-          <fa-icon [icon]="faTwitch" size="2x"></fa-icon>
-          <fa-icon [icon]="faGithub" size="2x"></fa-icon>
-          <fa-icon [icon]="faSteam" size="2x"></fa-icon>
+          <a [href]="social.url" target="_blank" *ngFor="let social of socials">
+            <fa-icon [icon]="social.icon" size="2x"></fa-icon>
+          </a>
         </div>
         <p class="description mat-title">I code, play games, and tinker with tech.</p>
       </div>
