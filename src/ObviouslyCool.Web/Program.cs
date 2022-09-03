@@ -53,12 +53,14 @@ namespace ObviouslyCool.Web
             app.UseStaticFiles();
             app.UseRouting();
 
-
             app.MapControllerRoute(
                 name: "default",
                 pattern: "{controller}/{action=Index}/{id?}");
 
-            app.MapFallbackToFile("index.html");
+            if (app.Environment.IsDevelopment())
+            {
+                app.MapFallbackToFile("index.html");
+            }
 
             app.Run();
         }
