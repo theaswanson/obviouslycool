@@ -7,6 +7,10 @@ on:
   push:
     branches:
       - main
+    # Don't fire when the frontend changes
+    paths-ignore:
+      - 'doc/**'
+      - 'src/ObviouslyCool.Web/ClientApp/**'
   workflow_dispatch:
 
 jobs:

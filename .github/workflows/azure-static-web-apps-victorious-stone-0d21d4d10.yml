@@ -4,6 +4,10 @@ on:
   push:
     branches:
       - main
+    # Only fire when the frontend changes
+    paths:
+      - 'src/ObviouslyCool.Web/ClientApp/**'
+      - '!doc/**'
 
 jobs:
   build_and_deploy_job:
