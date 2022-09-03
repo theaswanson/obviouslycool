@@ -30,7 +30,22 @@ export class GalleryComponent {
     breakpoints: {
       768: {
         slidesPerView: 3
-      }
+      },
+      1100: {
+        slidesPerView: 4
+      },
+      1300: {
+        slidesPerView: 5
+      },
+      1600: {
+        slidesPerView: 3
+      },
+      1960: {
+        slidesPerView: 4
+      },
+      2307: {
+        slidesPerView: 3
+      },
     }
   };
 
