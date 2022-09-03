@@ -17,7 +17,6 @@ export class GalleryComponent {
     '/assets/img/spiderman.jpg',
     '/assets/img/rocket-league.jpg',
     '/assets/img/hl2.jpg',
-    '/assets/img/spiderman.jpg',
     '/assets/img/portal2.jpg'
   ];
 
