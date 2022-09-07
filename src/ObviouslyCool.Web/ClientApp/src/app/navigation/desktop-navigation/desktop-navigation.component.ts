@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { ExternalNavigationItem, NavigationItem } from '../models';
+import { NavigationItem } from '../models';
 
 @Component({
   selector: 'app-desktop-navigation',
@@ -9,7 +9,6 @@ import { ExternalNavigationItem, NavigationItem } from '../models';
 export class DesktopNavigationComponent implements OnInit {
 
   @Input() navigationItems?: NavigationItem[];
-  @Input() externalNavigationItems?: ExternalNavigationItem[];
 
   constructor() { }
 

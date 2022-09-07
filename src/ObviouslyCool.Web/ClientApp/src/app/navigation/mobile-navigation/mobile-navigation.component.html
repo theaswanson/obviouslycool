@@ -6,14 +6,10 @@
     <span></span>
   </div>
   <div class="nav-items" *ngIf="navigationOpen">
-    <ul class="internal-items">
-      <li *ngFor="let item of navigationItems" routerLinkActive="menu-active">
-        <a [routerLink]="[item.route]">{{item.title}}</a>
-      </li>
-    </ul>
     <ul>
-      <li *ngFor="let item of externalNavigationItems">
-        <a [href]="item.url" target="_blank" (click)="navigate()">{{item.title}}</a>
+      <li *ngFor="let item of navigationItems" routerLinkActive="menu-active">
+        <a *ngIf="!item.isExternal()" [routerLink]="[item.getRoute()]">{{item.title}}</a>
+        <a *ngIf="item.isExternal()" [href]="item.getRoute()" target="_blank">{{item.title}}</a>
       </li>
     </ul>
   </div>

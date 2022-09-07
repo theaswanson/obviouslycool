@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavigationItem } from '../navigation/models';
+import { ExternalNavigationItem, InternalNavigationItem, NavigationItem } from '../navigation/models';
 import { faTwitter, faYoutube, faTwitch, faGithub, faSteam, IconDefinition } from '@fortawesome/free-brands-svg-icons';
 
 export class Social {
@@ -20,10 +20,9 @@ export class Social {
 export class HomeComponent {
 
   navigationItems: NavigationItem[] = [
-    new NavigationItem('Home', ''),
-    new NavigationItem('Watch', 'watch'),
-    new NavigationItem('Games', 'games'),
-    new NavigationItem('Code', 'code')
+    new InternalNavigationItem('Home', ''),
+    new ExternalNavigationItem('Twitch', 'https://twitch.tv/crisp2020'),
+    new ExternalNavigationItem('Discord', 'https://discord.gg/2DFqfgVVYm'),
   ];
 
   faTwitter = faTwitter;

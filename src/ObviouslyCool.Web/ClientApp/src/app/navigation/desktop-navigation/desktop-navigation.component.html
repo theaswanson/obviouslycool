@@ -1,14 +1,10 @@
 <div class="desktop-navigation no-select">
-  <img src="/assets/img/logo.jpg" class="logo" title="logo"/>
+  <img src="/assets/img/logo.jpg" class="logo" title="logo" />
   <div>
-    <ul class="internal-items">
+    <ul>
       <li *ngFor="let item of navigationItems">
-        <a [routerLink]="[item.route]" routerLinkActive="menu-active">{{item.title}}</a>
-      </li>
-    </ul>
-    <ul class="external-items">
-      <li *ngFor="let item of externalNavigationItems">
-        <a [href]="item.url" target="_blank">{{item.title}}</a>
+        <a *ngIf="!item.isExternal()" [routerLink]="[item.getRoute()]" routerLinkActive="menu-active">{{item.title}}</a>
+        <a *ngIf="item.isExternal()" [href]="item.getRoute()" target="_blank">{{item.title}}</a>
       </li>
     </ul>
   </div>

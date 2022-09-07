@@ -10,7 +10,6 @@ import { ExternalNavigationItem, NavigationItem } from '../models';
 export class MobileNavigationComponent implements OnInit {
 
   @Input() navigationItems?: NavigationItem[];
-  @Input() externalNavigationItems?: ExternalNavigationItem[];
 
   faBars = faBars;
   navigationOpen = false;
