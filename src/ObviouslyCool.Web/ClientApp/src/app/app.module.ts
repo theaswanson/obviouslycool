@@ -14,6 +14,7 @@ import { SwiperModule } from 'swiper/angular';
 import { GalleryComponent } from './gallery/gallery.component';
 import { SpotifyComponent } from './spotify/spotify.component';
 import { HttpClientModule } from '@angular/common/http';
+import { IntroComponent } from './intro/intro.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { HttpClientModule } from '@angular/common/http';
     DesktopNavigationComponent,
     TwitchComponent,
     GalleryComponent,
-    SpotifyComponent
+    SpotifyComponent,
+    IntroComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
