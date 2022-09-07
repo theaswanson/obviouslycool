@@ -12,6 +12,7 @@ SwiperCore.use([Pagination, Navigation]);
 export class GalleryComponent {
 
   gameImages: string[] = [
+    '/assets/img/ttyd.jpg',
     '/assets/img/melee.png',
     '/assets/img/tf2.jpg',
     '/assets/img/spiderman.jpg',
