@@ -12,11 +12,14 @@ SwiperCore.use([Pagination, Navigation]);
 export class GalleryComponent {
 
   gameImages: string[] = [
+    '/assets/img/botw.jpg',
     '/assets/img/ttyd.jpg',
-    '/assets/img/melee.png',
+    '/assets/img/prodeus.jpg',
+    '/assets/img/overwatch.jpg',
     '/assets/img/tf2.jpg',
     '/assets/img/spiderman.jpg',
     '/assets/img/rocket-league.jpg',
+    '/assets/img/melee.png',
     '/assets/img/hl2.jpg',
     '/assets/img/portal2.jpg'
   ];
