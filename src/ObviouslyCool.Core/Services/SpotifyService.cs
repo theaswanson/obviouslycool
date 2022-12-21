@@ -17,7 +17,11 @@ namespace ObviouslyCool.Core.Services
 
         public async Task<IEnumerable<TopArtist>> GetTopArtists()
         {
-            var topArtistsResponse = await client.Personalization.GetTopArtists();
+            var topArtistsResponse = await client.Personalization.GetTopArtists(new PersonalizationTopRequest
+            {
+                TimeRangeParam = PersonalizationTopRequest.TimeRange.ShortTerm
+            });
+
             return topArtistsResponse.Items.Select(i => new TopArtist
             {
                 Name = i.Name,

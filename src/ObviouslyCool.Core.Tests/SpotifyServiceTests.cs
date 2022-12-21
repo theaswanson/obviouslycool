@@ -13,6 +13,7 @@ namespace ObviouslyCool.Core.Tests
         public void Setup()
         {
             spotifyClient = MockSpotifyClient();
+
             service = new SpotifyService(spotifyClient.Object);
         }
 
@@ -20,18 +21,22 @@ namespace ObviouslyCool.Core.Tests
         public async Task WhenGettingTopArtists_CallsAPI()
         {
             var response = await service.GetTopArtists();
-            spotifyClient.Verify(c => c.Personalization.GetTopArtists(), Times.Once);
+
+            spotifyClient.Verify(c => c.Personalization.GetTopArtists(It.Is<PersonalizationTopRequest>(r => r.TimeRangeParam == PersonalizationTopRequest.TimeRange.ShortTerm)), Times.Once);
         }
 
         private Mock<ISpotifyClient> MockSpotifyClient()
         {
             var client = new Mock<ISpotifyClient>();
+
             client.SetupGet(c => c.Personalization).Returns(MockPersonalizationClient().Object);
+
             return client;
 
             static Mock<IPersonalizationClient> MockPersonalizationClient()
             {
                 var personalizationClient = new Mock<IPersonalizationClient>();
+
                 var topArtistsResponse = new Paging<FullArtist>
                 {
                     Items = new List<FullArtist>
@@ -42,7 +47,9 @@ namespace ObviouslyCool.Core.Tests
                         }
                     }
                 };
-                personalizationClient.Setup(c => c.GetTopArtists()).ReturnsAsync(topArtistsResponse);
+
+                personalizationClient.Setup(c => c.GetTopArtists(It.IsAny<PersonalizationTopRequest>())).ReturnsAsync(topArtistsResponse);
+
                 return personalizationClient;
             }
         }
